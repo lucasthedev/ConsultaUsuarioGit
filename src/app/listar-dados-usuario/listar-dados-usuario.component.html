@@ -1,0 +1,50 @@
+<form #form="ngForm" class="container">
+    <div class="form-group">    
+        <input type="text" class="form-control" id="txtLogin" placeholder="meu.login" [(ngModel)]="txtLogin" name="txtLogin" required #login="ngModel"/>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block" (click)="findUsuarioGit()">Buscar</button>
+</form>
+
+<div class="alinha-loading" *ngIf="mostraLoading">
+    <div class="spinner-border" role="status" >
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div class="container" id="listagem-dados-usuario" *ngIf="foundUsuer">
+    <div class="card-container">
+        <div class="card-header">
+          <div class="row">
+            <h4 class="col-12 text-center">{{usuarioGit.name}}</h4>
+          </div>
+        </div>
+        <div class="card-body">
+            <div class="row">                
+                <img src={{usuarioGit.avatar_url}} alt="avatar" height="60" width="60">
+            </div>
+            <br>            
+            <div class="row">
+                <label><b>Bio: </b> {{usuarioGit.bio}} </label>                
+            </div>
+            <div class="row">
+                <label><b>Empresa: </b> {{usuarioGit.company}} </label>
+            </div>
+            <div class="row">
+                <label><b>seguidores: </b> {{usuarioGit.followers}} </label>
+            </div>
+            <div class="row">
+                <label><b>seguindo: </b> {{usuarioGit.following}} </label>                
+            </div>
+            
+            <div class="row">
+                <label><b>localização: </b> {{usuarioGit.location}} </label>                
+            </div>
+            <div class="row">
+                <label><b>Repositórios Públicos: </b> {{usuarioGit.public_repos}} </label>                
+            </div>
+            <div class="row">
+                <span><b>Entrou no github: </b> {{usuarioGit.created_at}} </span>
+            </div>
+        </div>
+    </div>
+</div>
